@@ -1,0 +1,283 @@
+/* ─────────────────────────────────────────────
+   GOOGLE FONTS
+   ───────────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Comic+Neue:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap");
+
+
+/* ═══════════════════════════════════════════════════════════
+   Tailwind CSS 4 — CSS-First Configuration
+   ═══════════════════════════════════════════════════════════ */
+
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* ─────────────────────────────────────────────
+   THEME CONFIGURATION
+   ───────────────────────────────────────────── */
+@theme {
+  /* ── 12 Responsive Breakpoints ── */
+  --breakpoint-mini: 320px;
+  --breakpoint-mobile: 375px;
+  --breakpoint-mobile-large: 480px;
+  --breakpoint-phablet: 640px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-tablet-large: 834px;
+  --breakpoint-laptop: 1024px;
+  --breakpoint-desktop: 1280px;
+  --breakpoint-desktop-large: 1440px;
+  --breakpoint-wide: 1680px;
+  --breakpoint-ultrawide: 1920px;
+
+  /* ── Dynamic Theme Colors ── */
+  --color-primary: var(--theme-primary);
+  --color-secondary: var(--theme-secondary);
+  --color-accent: var(--theme-accent);
+  --color-background: var(--theme-background);
+  --color-surface: var(--theme-surface);
+  --color-text-primary: var(--theme-text-primary);
+  --color-text-secondary: var(--theme-text-secondary);
+
+  /* ── Font Families ── */
+  --font-heading: "Baloo 2", cursive;
+  --font-subheading: "Nunito", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-fun: "Comic Neue", cursive;
+
+  /* ── Custom Animations ── */
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-float-delayed: float 3s ease-in-out 1.5s infinite;
+  --animate-blob-morph: blobMorph 8s ease-in-out infinite;
+  --animate-bounce-slow: bounce 3s infinite;
+  --animate-marquee: marquee 25s linear infinite;
+  --animate-pulse-glow: pulseGlow 2s ease-in-out infinite;
+  --animate-spin-slow: spin 8s linear infinite;
+  --animate-wiggle: wiggle 1s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────────
+   KEYFRAMES
+   ───────────────────────────────────────────── */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes blobMorph {
+  0%,
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px var(--theme-primary);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--theme-primary), 0 0 40px var(--theme-primary);
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+/* ─────────────────────────────────────────────
+   THEME CSS VARIABLES (6 THEMES)
+   ───────────────────────────────────────────── */
+:root,
+[data-theme="sunshine"] {
+  --theme-primary: #ffd166;
+  --theme-secondary: #06d6a0;
+  --theme-accent: #ef476f;
+  --theme-background: #fffdf7;
+  --theme-surface: #ffffff;
+  --theme-text-primary: #2b2d42;
+  --theme-text-secondary: #555b6e;
+}
+
+[data-theme="night-owl"] {
+  --theme-primary: #bb86fc;
+  --theme-secondary: #03dac6;
+  --theme-accent: #ff6b6b;
+  --theme-background: #121212;
+  --theme-surface: #1e1e2e;
+  --theme-text-primary: #e0e0e0;
+  --theme-text-secondary: #a0a0b0;
+}
+
+[data-theme="ocean"] {
+  --theme-primary: #0077b6;
+  --theme-secondary: #00b4d8;
+  --theme-accent: #ff9f1c;
+  --theme-background: #f0f8ff;
+  --theme-surface: #ffffff;
+  --theme-text-primary: #023047;
+  --theme-text-secondary: #3d5a80;
+}
+
+[data-theme="blossom"] {
+  --theme-primary: #e63946;
+  --theme-secondary: #f4a261;
+  --theme-accent: #2a9d8f;
+  --theme-background: #fff0f3;
+  --theme-surface: #ffffff;
+  --theme-text-primary: #3d0814;
+  --theme-text-secondary: #6b2737;
+}
+
+[data-theme="nature"] {
+  --theme-primary: #2d6a4f;
+  --theme-secondary: #95d5b2;
+  --theme-accent: #ffba08;
+  --theme-background: #f1faee;
+  --theme-surface: #ffffff;
+  --theme-text-primary: #1b4332;
+  --theme-text-secondary: #40916c;
+}
+
+[data-theme="candy"] {
+  --theme-primary: #9b5de5;
+  --theme-secondary: #f15bb5;
+  --theme-accent: #00f5d4;
+  --theme-background: #fef9ff;
+  --theme-surface: #ffffff;
+  --theme-text-primary: #3a0ca3;
+  --theme-text-secondary: #7b2cbf;
+}
+
+/* ─────────────────────────────────────────────
+   CUSTOM UTILITIES (Tailwind 4)
+   ───────────────────────────────────────────── */
+@utility container-main {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@utility container-wide {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@utility container-narrow {
+  width: 100%;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@utility text-gradient {
+  background: linear-gradient(135deg, var(--theme-primary), var(--theme-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@utility glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@utility section-padding {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+
+  @media (min-width: 768px) {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  @media (min-width: 1280px) {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   CUSTOM VARIANTS
+   ───────────────────────────────────────────── */
+@custom-variant dark (&:where([data-theme="night-owl"] *));
+
+/* ─────────────────────────────────────────────
+   GLOBAL BASE STYLES
+   ───────────────────────────────────────────── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--theme-primary) var(--theme-background);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--theme-background);
+  color: var(--theme-text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--theme-primary);
+  color: var(--theme-surface);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Custom Scrollbar - Webkit */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--theme-background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--theme-primary);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-accent);
+}
